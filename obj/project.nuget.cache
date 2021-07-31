@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ICjGyBwjGa4OOf4108+TqdfQ6nCx/J1iXs9q/J8BrVxXtaGOKDgkGma5zMonDKE2bDE3Ck1viDmLQFoKQnuelA==",
+  "dgSpecHash": "zgDNCMFN9pZ8sNmYH2Kx7lVefbPQNF39d9g7aoIOmJtPXQnEa1VaRNEOO4MOnJWTF4I7ZZYmZj7Db/caZ63ppw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\NickF\\OneDrive\\Documentos\\MyRepos\\JdB-Bot\\JdB-Bot.csproj",
+  "projectFilePath": "C:\\Users\\NickF\\OneDrive\\Documentos\\MyRepos\\jdb-bot\\JdB-Bot.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\NickF\\.nuget\\packages\\discord.net\\2.4.0\\discord.net.2.4.0.nupkg.sha512",
     "C:\\Users\\NickF\\.nuget\\packages\\discord.net.commands\\2.4.0\\discord.net.commands.2.4.0.nupkg.sha512",

@@ -1,7 +1,7 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Discord;
 using Discord.WebSocket;
-using System.Threading.Tasks;
 
 namespace JdB_Bot
 {
@@ -10,18 +10,15 @@ namespace JdB_Bot
         static void Main(string[] args)
             => new Program().AsyncMain().GetAwaiter().GetResult();
 
-        private DiscordSocketClient DSClient;
+        private static DiscordSocketClient _client;
 
         public async Task AsyncMain()
         {
-            DSClient = new DiscordSocketClient();
-            DSClient.Log += Log;
-
+            _client = new DiscordSocketClient();
+            _client.Log += Log;
             var token = Environment.GetEnvironmentVariable("DiscordToken");
-
-            await DSClient.LoginAsync(TokenType.Bot, token);
-            await DSClient.StartAsync();
-
+            await _client.LoginAsync(TokenType.Bot, token);
+            await _client.StartAsync();
             await Task.Delay(-1);
         }
 

@@ -1462,11 +1462,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\NickF\\OneDrive\\Documentos\\MyRepos\\JdB-Bot\\JdB-Bot.csproj",
+      "projectUniqueName": "C:\\Users\\NickF\\OneDrive\\Documentos\\MyRepos\\jdb-bot\\JdB-Bot.csproj",
       "projectName": "JdB-Bot",
-      "projectPath": "C:\\Users\\NickF\\OneDrive\\Documentos\\MyRepos\\JdB-Bot\\JdB-Bot.csproj",
+      "projectPath": "C:\\Users\\NickF\\OneDrive\\Documentos\\MyRepos\\jdb-bot\\JdB-Bot.csproj",
       "packagesPath": "C:\\Users\\NickF\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\NickF\\OneDrive\\Documentos\\MyRepos\\JdB-Bot\\obj\\",
+      "outputPath": "C:\\Users\\NickF\\OneDrive\\Documentos\\MyRepos\\jdb-bot\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\NickF\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1477,7 +1477,8 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://www.myget.org/F/discord-net/api/v3/index.json": {}
       },
       "frameworks": {
         "net5.0": {
