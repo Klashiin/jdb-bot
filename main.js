@@ -1,10 +1,11 @@
 const Discord = require("discord.js");
-const token = process.env.DiscordToken;
-const client = new Discord.Client();
 const mongoose = require("mongoose");
-const dotenv = require("dotenv");
-dotenv.config();
+require('dotenv').config();
 
+const token = process.env.DiscordToken;
+const mongoDBurl = process.env.MongoDB_String;
+
+const client = new Discord.Client();
 client.commands = new Discord.Collection();
 client.events = new Discord.Collection();
 
@@ -13,7 +14,7 @@ client.events = new Discord.Collection();
 });
 
 mongoose
-  .connect(process.env.MongoDBConnect, {
+  .connect(mongoDBurl, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
