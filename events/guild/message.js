@@ -9,9 +9,11 @@ module.exports = async (Discord, client, message) => {
       profileData = await profileModel.findOne({ userID: message.author.id });
       if (!profileData) {
         let profile = await profileModel.create({
-            userID: message.author.id,
-            serverID: message.guild.id,
-            pontos: 1000
+          userID: message.author.id,
+          serverID: message.guild.id,
+          isDailyAvailable: true,
+          streak: 0,
+          pontos: 1000,
         });
         profile.save();
       }
