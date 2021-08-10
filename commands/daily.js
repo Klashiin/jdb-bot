@@ -3,6 +3,22 @@ module.exports = {
   name: "daily",
   description: "Coleta o bônus diário (se disponível).",
   async execute(client, message, args, Discord, profileData) {
+    if (profileData === null) {
+      await profileModel.findOneAndUpdate(
+        {
+          userID: message.author.id,
+        },
+        {
+          $set: {
+            userID: message.author.id,
+            serverID: message.guild.id,
+            pontos: 1000,
+            isDailyAvailable: true,
+            dailyStreak: 1,
+          },
+        }
+      );
+    }
     if (profileData.isDailyAvailable) {
       let cooldown = 8.64e7;
       console.log("true");
@@ -19,8 +35,12 @@ module.exports = {
         }
       );
       // Definindo o bônus diário:
-      let bonus = (profileData.dailyStreak / 2) * 250;
-      console.log(bonus);
+      let bonus;
+      if (profileData.dailyStreak >= 10) {
+        bonus = 5 * 250;
+      } else {
+        bonus = (profileData.dailyStreak / 2) * 250;
+      }
       // Dando os pontos pro usuário:
       await profileModel.findOneAndUpdate(
         {

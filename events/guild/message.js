@@ -11,9 +11,9 @@ module.exports = async (Discord, client, message) => {
         let profile = await profileModel.create({
           userID: message.author.id,
           serverID: message.guild.id,
-          isDailyAvailable: true,
-          streak: 0,
           pontos: 1000,
+          isDailyAvailable: true,
+          dailyStreak: 1,
         });
         profile.save();
       }
