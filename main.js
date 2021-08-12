@@ -1,6 +1,5 @@
 const Discord = require("discord.js");
 const mongoose = require("mongoose");
-require('dotenv').config();
 
 const mongoDBurl = process.env.MongoDB_String;
 
