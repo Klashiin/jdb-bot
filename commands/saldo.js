@@ -6,7 +6,6 @@ module.exports = {
       .setTitle("Saldo Disponível")
       .addFields({name: `${profileData.pontos} pontos`, value: ":dollar: :dollar: :dollar:"})
       .setColor("#118C4F");
-
     message.channel.send(saldoEmbed);
   },
 };
