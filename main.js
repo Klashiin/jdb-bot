@@ -2,7 +2,6 @@ const Discord = require("discord.js");
 const mongoose = require("mongoose");
 require('dotenv').config();
 
-const token = process.env.DiscordToken;
 const mongoDBurl = process.env.MongoDB_String;
 
 const client = new Discord.Client();
@@ -26,4 +25,4 @@ mongoose
     console.log(err);
   });
 
-client.login(token);
+client.login(process.env.token);
