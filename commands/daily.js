@@ -1,10 +1,11 @@
+const { countDocuments } = require("../models/profileSchema");
 const profileModel = require("../models/profileSchema");
 module.exports = {
   name: "daily",
   description: "Coleta o bônus diário (se disponível).",
   async execute(client, message, args, Discord, profileData) {
     if (profileData.isDailyAvailable) {
-      let cooldown = 8.64e7;
+      const cooldown = 60000;
       console.log("true");
       console.log(profileData.dailyStreak);
       // Aumanetando dailyStreak em 1:
