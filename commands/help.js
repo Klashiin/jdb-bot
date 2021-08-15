@@ -13,7 +13,7 @@ module.exports = {
       let i = 0;
       for (const file of commandFiles) {
         const command = require(`../commands/${file}`);
-        obj[i] = { name: process.env.prefix + command.name, value: command.description};
+        obj[i] = { name: "~" + command.name, value: command.description};
         i++;
       }
       return obj;
