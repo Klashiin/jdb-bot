@@ -24,6 +24,42 @@ module.exports = {
         "Você precisa inserir um bicho para usar esse comando!"
       );
     }
+    let allow = false;
+    const allowedBichos = [
+      "avestruz",
+      "águia",
+      "burro",
+      "borboleta",
+      "cachorro",
+      "cabra",
+      "carneiro",
+      "camelo",
+      "cobra",
+      "coelho",
+      "cavalo",
+      "elefante",
+      "galo",
+      "gato",
+      "jacaré",
+      "leão",
+      "macaco",
+      "porco",
+      "pavão",
+      "peru",
+      "touro",
+      "tigre",
+      "urso",
+      "veado",
+      "vaca",
+    ];
+    for (let i = 0; i < allowedBichos.length; i++) {
+      if (allowedBichos[i] == bicho) {
+        allow = true;
+      }
+    }
+    if (!allow) {
+      return message.reply("Por favor, insira um bicho válido!");
+    }
     // Se passar as checagens, subtrair a quantia
     await profileModel.findOneAndUpdate(
       {
