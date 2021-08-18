@@ -60,6 +60,9 @@ module.exports = {
     if (allow === false) {
       return message.reply("Por favor, insira um bicho válido!");
     }
+    if (profileData.pontos - quantia < 0) {
+      return message.reply("Seu saldo é insuficiente.");
+    }
     // Se passar as checagens, subtrair a quantia
     await profileModel.findOneAndUpdate(
       {

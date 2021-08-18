@@ -17,6 +17,9 @@ module.exports = {
       return message.reply(
         "A quantia a ser paga tem que ser um número inteiro positivo."
       );
+    if (profileData.pontos - quantia < 0) {
+      return message.reply("Seu saldo é insuficiente.");
+    }
     try {
       const targetData = await profileModel.findOne({userID: target.id});
       // Criando o perfil pra target, caso não exista:
