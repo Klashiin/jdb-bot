@@ -19,6 +19,22 @@ module.exports = {
       return message.reply(
         "A quantia a ser paga tem que ser um número inteiro positivo."
       );
+    if (bicho === undefined) {
+      return message.reply(
+        "Você precisa inserir um bicho para usar esse comando!"
+      );
+    }
+    // Se passar as checagens, subtrair a quantia
+    await profileModel.findOneAndUpdate(
+      {
+        userID: message.author.id,
+      },
+      {
+        $inc: {
+          pontos: -quantia,
+        },
+      }
+    );
     // RANDOM NUMVERZZZ
     function getRandomInt(min, max) {
       min = Math.ceil(min);
@@ -89,6 +105,7 @@ module.exports = {
         name: `${bichoSorteado}`,
         value: `Aposta x18`,
       });
+    message.channel.send(resultEmbed);
     // Comparar bicho com bichoSorteado e recompensar se forem iguais:
     if (bicho == bichoSorteado) {
       await profileModel.findOneAndUpdate(
