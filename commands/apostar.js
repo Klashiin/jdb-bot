@@ -63,6 +63,9 @@ module.exports = {
     if (profileData.pontos - quantia < 0) {
       return message.reply("Seu saldo é insuficiente.");
     }
+    if (quantia < 100) {
+      return message.reply("A aposta mínima é de 100 pontos.");
+    }
     // Se passar as checagens, subtrair a quantia
     await profileModel.findOneAndUpdate(
       {
@@ -111,7 +114,8 @@ module.exports = {
         "https://i.pinimg.com/originals/8c/51/c4/8c51c45de0b90ce5483f31aa305de1d8.gif";
     } else if (dezena >= 29 && dezena <= 32) {
       bichoSorteado = "camelo";
-      imagem = "https://media2.giphy.com/media/4W8L0WVcwBEnS/200w.gif";
+      imagem =
+        "https://pa1.narvii.com/6356/adc9bf9a2d591e19e8d1c596fd557269a95d5a77_hq.gif";
     } else if (dezena >= 33 && dezena <= 36) {
       bichoSorteado = "cobra";
       imagem =
@@ -131,7 +135,7 @@ module.exports = {
     } else if (dezena >= 49 && dezena <= 52) {
       bichoSorteado = "galo";
       imagem =
-        "https://i.pinimg.com/originals/c1/1f/92/c11f92f246706adf9ebce8f74a612e92.gif";
+        "https://i.pinimg.com/originals/b0/f6/68/b0f6685e60fb207fd98644d876e46daa.gif";
     } else if (dezena >= 53 && dezena <= 56) {
       bichoSorteado = "gato";
       imagem = "https://media4.giphy.com/media/GeimqsH0TLDt4tScGw/giphy.gif";
@@ -180,7 +184,7 @@ module.exports = {
       .setImage(imagem)
       .addFields({
         name: `${bichoSorteado.toString().toUpperCase()}`,
-        value: `Aposta x18`,
+        value: `${quantia} x18`,
       });
     message.channel.send(resultEmbed);
     // Comparar bicho com bichoSorteado e recompensar se forem iguais:
