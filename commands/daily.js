@@ -1,4 +1,3 @@
-const ms = require("parse-ms");
 const {countDocuments} = require("../models/profileSchema");
 const profileModel = require("../models/profileSchema");
 module.exports = {
