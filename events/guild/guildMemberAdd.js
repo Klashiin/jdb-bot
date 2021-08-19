@@ -5,7 +5,7 @@ module.exports = async (client, discord, member) => {
     userID: member.id,
     serverID: member.guild.id,
     pontos: 1000,
-    isDailyAvailable: true,
+    lastDaily: 0,
     dailyStreak: 1,
   });
   profile.save();

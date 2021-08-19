@@ -12,7 +12,7 @@ module.exports = async (Discord, client, message) => {
         userID: message.author.id,
         serverID: message.guild.id,
         pontos: 1000,
-        isDailyAvailable: true,
+        lastDaily: 0,
         dailyStreak: 1,
       });
       profile.save();

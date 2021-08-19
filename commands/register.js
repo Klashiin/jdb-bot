@@ -14,7 +14,7 @@ module.exports = {
             userID: message.author.id,
             serverID: message.guild.id,
             pontos: 1000,
-            isDailyAvailable: true,
+            lastDaily: 0,
             dailyStreak: 1,
           },
         }
