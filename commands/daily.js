@@ -4,7 +4,8 @@ module.exports = {
   name: "daily",
   description: "Coleta o bônus diário (se disponível).",
   async execute(client, message, args, Discord, profileData) {
-    const cooldown = 86400000;
+      const cooldown = 86400000;
+      let lastDaily = profileData.lastDaily;
     if (lastDaily + cooldown <= Date.now()) {
       console.log("true");
       // Definindo o bônus diário:
