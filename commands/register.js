@@ -3,10 +3,9 @@ const profileModel = require("../models/profileSchema");
 module.exports = {
   name: "register",
   description: "Registra seu perfil no JdB Bot.",
-  execute: async function (client, message, args, Discord) {
-    let profileData = await profileModel.findOne({userID: message.author.id});
+  execute: async function (client, message, args, Discord, profileData) {
     try {
-      if (!profileData) {
+      if (profileData === undefined) {
         let profile = await profileModel.create({
           userID: message.author.id,
           serverID: message.guild.id,
