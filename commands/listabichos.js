@@ -34,7 +34,7 @@ module.exports = {
       let obj = [];
       let i = 0;
       for (const bicho of allowedBichos) {
-        obj[i] = {name: bicho.toUpperCase()};
+        obj[i] = {name: bicho.toUpperCase(), value: ":cowboy: :cowboy: :cowboy:"};
         i++;
       }
       return obj;
