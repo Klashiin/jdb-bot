@@ -6,9 +6,11 @@ module.exports = {
   async execute(client, message, args, Discord, profileData) {
     for (let i = 1; i > 0; i++) {
       if (!profileData) {
-        console.log("profile generated");
-        continue;
+        console.log("perfil gerado");
       }
+    }
+
+    if (profileData) {
       const cooldown = 86400000;
       let lastDaily = profileData.lastDaily;
       if (lastDaily + cooldown <= Date.now()) {
@@ -55,7 +57,6 @@ module.exports = {
         console.log("false");
         message.reply("seu bônus diário já foi coletado hoje.");
       }
-      i = 0;
     }
   },
 };
