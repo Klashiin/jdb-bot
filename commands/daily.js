@@ -6,7 +6,8 @@ module.exports = {
   async execute(client, message, args, Discord, profileData) {
     for (let i = 1; i > 0; i++) {
       if (profileData === null) {
-        console.log("perfil gerado");
+          console.log("perfil gerado");
+          break;
       } else {
         const cooldown = 86400000;
         let lastDaily = profileData.lastDaily;
