@@ -4,22 +4,8 @@ module.exports = {
   name: "daily",
   description: "Coleta o bônus diário (se disponível).",
   async execute(client, message, args, Discord, profileData) {
-    for (let i = 0; i < 0; i++) {
+    for (let i = 1; i > 0; i++) {
       if (!profileData) {
-        await profileModel.findOneAndUpdate(
-          {
-            userID: message.author.id,
-          },
-          {
-            $set: {
-              userID: message.author.id,
-              serverID: message.guild.id,
-              pontos: 1000,
-              lastDaily: 0,
-              dailyStreak: 1,
-            },
-          }
-        );
         console.log("profile generated");
         continue;
       }
@@ -69,6 +55,7 @@ module.exports = {
         console.log("false");
         message.reply("seu bônus diário já foi coletado hoje.");
       }
+      i = 0;
     }
   },
 };
