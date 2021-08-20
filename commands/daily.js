@@ -5,7 +5,7 @@ module.exports = {
   description: "Coleta o bônus diário (se disponível).",
   async execute(client, message, args, Discord, profileData) {
     for (let i = 1; i > 0; i++) {
-      if (profileData.userID === null) {
+      if (profileData === null) {
         console.log("perfil gerado");
       } else {
         const cooldown = 86400000;
@@ -53,8 +53,8 @@ module.exports = {
         } else {
           console.log("false");
           message.reply("seu bônus diário já foi coletado hoje.");
-          }
-          break;
+        }
+        break;
       }
     }
   },
