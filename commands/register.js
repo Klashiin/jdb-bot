@@ -4,9 +4,8 @@ module.exports = {
   name: "register",
   description: "Registra seu perfil no JdB Bot.",
   execute: async function (client, message, args, Discord) {
-    let profileData;
+    let profileData = await profileModel.findOne({userID: message.author.id});
     try {
-      profileData = await profileModel.findOne({userID: message.author.id});
       if (!profileData) {
         let profile = await profileModel.create({
           userID: message.author.id,
