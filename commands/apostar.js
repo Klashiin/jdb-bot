@@ -1,4 +1,5 @@
 const profileModel = require("../models/profileSchema");
+const bichoModel = require("../models/bichoSchema");
 
 module.exports = {
   name: "apostar",
@@ -202,6 +203,33 @@ module.exports = {
         "https://i.pinimg.com/originals/0a/35/61/0a356142c7184ae283480e277bf81dda.gif";
       emoji = ":cow:";
     }
+    // Adicionar bichoSorteado ao DB se não existir:
+    let bichoData;
+    try {
+      bichoData = await bichoModel.findOne({nome: bichoSorteado});
+      if (!bichoData) {
+        let novoBicho = await bichoModel.create({
+          nome: bichoSorteado,
+          image: imagem,
+          emoji: emoji,
+          totalWins: 0,
+        });
+        novoBicho.save();
+      }
+    } catch (err) {
+      console.log(err);
+    }
+    // E atualizar o totalWins dele:
+    await bichoModel.findOneAndUpdate(
+      {
+        nome: bichoSorteado,
+      },
+      {
+        $inc: {
+          totalWins: 1,
+        },
+      }
+    );
     // Exibir um embed com o bicho vencedor
     const resultEmbed = new Discord.MessageEmbed()
       .setTitle("Resultado")
