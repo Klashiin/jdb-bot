@@ -25,22 +25,16 @@ module.exports = {
           rankEmbed.setColor("#5865F2");
           for (i = 0; i < res.length; i++) {
             let bicho = res[i].nome;
-            let emoji = res[i].emoji;
-            rankEmbed.addField(
-              `${i + 1}. ${bicho}`,
-              `${emoji} ${emoji} ${emoji}`
-            );
+            let wins = res[i].totalWins;
+            rankEmbed.addField(`${i + 1}. ${bicho}`, `${wins} vitórias`);
           }
         } else {
           // se tiverem mais de 10 resultados
           rankEmbed.setColor("#5865F2");
           for (i = 0; i < 10; i++) {
             let bicho = res[i].nome;
-            let emoji = res[i].emoji;
-            rankEmbed.addField(
-              `${i + 1}. ${bicho}`,
-              `${emoji} ${emoji} ${emoji}`
-            );
+            let wins = res[i].totalWins;
+            rankEmbed.addField(`${i + 1}. ${bicho}`, `${wins} vitórias`);
           }
         }
         message.channel.send(rankEmbed);
