@@ -3,7 +3,7 @@ const profileModel = require("../models/profileSchema");
 module.exports = {
   name: "rankpontos",
   description: "Exibe um ranking dos membros do servidor, baseado nos pontos.",
-  execute(client, message, args, Discord, profileData) {
+  async execute(client, message, args, Discord, profileData) {
     profileModel
       .find({serverID: message.guild.id})
       .sort([["pontos", "descending"]])
