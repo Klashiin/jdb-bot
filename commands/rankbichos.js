@@ -43,7 +43,7 @@ module.exports = {
             );
           }
         }
+        message.channel.send(rankEmbed);
       });
-    message.channel.send(rankEmbed);
   },
 };
