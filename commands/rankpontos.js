@@ -7,7 +7,7 @@ module.exports = {
     profileModel
       .find({serverID: message.guild.id})
       .sort([["pontos", "descending"]])
-      .exec((err, res) => {
+      .exec(async (err, res) => {
         if (err) console.log(err);
 
         let rankEmbed = new Discord.MessageEmbed().setTitle(
