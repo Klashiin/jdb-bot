@@ -44,5 +44,6 @@ module.exports = {
           }
         }
       });
+    message.channel.send(rankEmbed);
   },
 };
