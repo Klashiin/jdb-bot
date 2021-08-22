@@ -26,7 +26,11 @@ module.exports = {
           for (i = 0; i < res.length; i++) {
             let bicho = res[i].nome;
             let wins = res[i].totalWins;
-            rankEmbed.addField(`${i + 1}. ${bicho}`, `${wins} vitórias`);
+            let emoji = res[i].emoji;
+            rankEmbed.addField(
+              `${i + 1}. ${bicho} ${emoji}`,
+              `${wins} vitórias`
+            );
           }
         } else {
           // se tiverem mais de 10 resultados
@@ -34,7 +38,11 @@ module.exports = {
           for (i = 0; i < 10; i++) {
             let bicho = res[i].nome;
             let wins = res[i].totalWins;
-            rankEmbed.addField(`${i + 1}. ${bicho}`, `${wins} vitórias`);
+            let emoji = res[i].emoji;
+            rankEmbed.addField(
+              `${i + 1}. ${bicho} ${emoji}`,
+              `${wins} vitórias`
+            );
           }
         }
         message.channel.send(rankEmbed);
