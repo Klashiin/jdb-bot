@@ -24,37 +24,21 @@ module.exports = {
           // se tiverem menos de 10 resultados
           rankEmbed.setColor("#5865F2");
           for (i = 0; i < res.length; i++) {
-            let member =
-              message.guild.member.get(res[i].userID) || "User Left";
-            if (member === "User Left") {
-              rankEmbed.addField(
-                `${i + 1}. ${member}`,
-                `${res[i].pontos} pontos`
-              );
-            } else {
-              rankEmbed.addField(
-                `${i + 1}. ${member.user.username}`,
-                `${res[i].pontos} pontos`
-              );
-            }
+            let member = res[i];
+            rankEmbed.addField(
+              `${i + 1}. ${member.user.username}`,
+              `${member.pontos} pontos`
+            );
           }
         } else {
           // se tiverem mais de 10 resultados
           rankEmbed.setColor("#5865F2");
           for (i = 0; i < 10; i++) {
-            let member =
-              message.guild.member.get(res[i].userID) || "User Left";
-            if (member === "User Left") {
-              rankEmbed.addField(
-                `${i + 1}. ${member}`,
-                `${res[i].pontos} pontos`
-              );
-            } else {
-              rankEmbed.addField(
-                `${i + 1}. ${member.user.username}`,
-                `${res[i].pontos} pontos`
-              );
-            }
+            let member = res[i];
+            rankEmbed.addField(
+              `${i + 1}. ${member.user.username}`,
+              `${member.pontos} pontos`
+            );
           }
         }
         message.channel.send(rankEmbed);
