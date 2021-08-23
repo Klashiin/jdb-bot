@@ -5,7 +5,7 @@ module.exports = {
   description: "Exibe um ranking dos membros do servidor, baseado nos pontos.",
   async execute(client, message, args, Discord, profileData) {
     profileModel
-      .find({serverID: message.guild.id})
+      .find({})
       .sort([["pontos", "descending"]])
       .exec(async (err, res) => {
         if (err) console.log(err);
