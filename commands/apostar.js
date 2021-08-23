@@ -252,10 +252,32 @@ module.exports = {
           },
         }
       );
+      // Atualizar as vitórias do usuário:
+      await bichoModel.findOneAndUpdate(
+        {
+          userID: message.author.id,
+        },
+        {
+          $inc: {
+            wins: 1,
+          },
+        }
+      );
       return message.reply(
         `Você acertou o bicho e ganhou ${quantia * 18} pontos.`
       );
     } else {
+      // Atualizar as derrotas do usuário:
+      await bichoModel.findOneAndUpdate(
+        {
+          userID: message.author.id,
+        },
+        {
+          $inc: {
+            losses: 1,
+          },
+        }
+      );
       return message.reply(
         `O bicho escolhido (${bicho}) não foi sorteado dessa vez...`
       );
