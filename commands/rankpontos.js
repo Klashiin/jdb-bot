@@ -27,7 +27,7 @@ module.exports = {
             let member = res[i].name;
             rankEmbed.addField(
               `${i + 1}. ${member}`,
-              `${res[í].pontos} pontos`
+              `${res[i].pontos} pontos`
             );
           }
         } else {
@@ -37,7 +37,7 @@ module.exports = {
             let member = res[i].name;
             rankEmbed.addField(
               `${i + 1}. ${member}`,
-              `${res[í].pontos} pontos`
+              `${res[i].pontos} pontos`
             );
           }
         }
