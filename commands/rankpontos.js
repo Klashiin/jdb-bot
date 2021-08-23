@@ -24,22 +24,20 @@ module.exports = {
           // se tiverem menos de 10 resultados
           rankEmbed.setColor("#5865F2");
           for (i = 0; i < res.length; i++) {
-            let memberID = res[i].userID;
-            let member = await client.fetchUser(memberID);
+            let member = res[i].name;
             rankEmbed.addField(
-              `${i + 1}. ${member.tag}`,
-              `${member.pontos} pontos`
+              `${i + 1}. ${member}`,
+              `${res[í].pontos} pontos`
             );
           }
         } else {
           // se tiverem mais de 10 resultados
           rankEmbed.setColor("#5865F2");
           for (i = 0; i < 10; i++) {
-            let memberID = res[i].userID;
-            let member = await client.fetchUser(memberID);
+            let member = res[i].name;
             rankEmbed.addField(
-              `${i + 1}. ${member.tag}`,
-              `${member.pontos} pontos`
+              `${i + 1}. ${member}`,
+              `${res[í].pontos} pontos`
             );
           }
         }
