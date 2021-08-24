@@ -240,7 +240,7 @@ module.exports = {
         value: `${emoji} ${emoji} ${emoji}`,
       });
     message.channel.send(resultEmbed);
-    // Comparar bicho com bichoSorteado e recompensar se forem iguais + aumentar wins e losses:
+    // Comparar bichoSorteado com bicho e aumentar pontos e wins caso vencer:
     if (bicho === bichoSorteado) {
       await profileModel.findOneAndUpdate(
         {
@@ -257,6 +257,17 @@ module.exports = {
         `Você acertou o bicho e ganhou ${quantia * 18} pontos.`
       );
     } else {
+      // Atualizar as derrotas do usuário:
+      await profileModel.findOneAndUpdate(
+        {
+          userID: message.author.id,
+        },
+        {
+          $inc: {
+            losses: 1,
+          },
+        }
+      );
       return message.reply(
         `O bicho escolhido (${bicho}) não foi sorteado dessa vez...`
       );
