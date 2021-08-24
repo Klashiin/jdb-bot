@@ -1,0 +1,3 @@
+# node-migrate
+
+Migrations simplified.
