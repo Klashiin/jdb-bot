@@ -259,7 +259,7 @@ module.exports = {
         },
         {
           $inc: {
-            wins: 1,
+            wins: +1,
           },
         }
       );
@@ -274,7 +274,7 @@ module.exports = {
         },
         {
           $inc: {
-            losses: 1,
+            losses: +1,
           },
         }
       );
