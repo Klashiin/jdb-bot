@@ -15,8 +15,8 @@ module.exports = async (Discord, client, message) => {
         pontos: 1000,
         lastDaily: 0,
         dailyStreak: 1,
-        wins: 1,
-        losses: 1,
+        wins: 0,
+        losses: 0,
       });
       profile.save();
     }
