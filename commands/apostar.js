@@ -240,8 +240,8 @@ module.exports = {
         value: `${emoji} ${emoji} ${emoji}`,
       });
     message.channel.send(resultEmbed);
-    // Comparar bicho com bichoSorteado e recompensar se forem iguais:
-    if (bicho == bichoSorteado) {
+    // Comparar bicho com bichoSorteado e recompensar se forem iguais + aumentar wins:
+    if (bicho === bichoSorteado) {
       await profileModel.findOneAndUpdate(
         {
           userID: message.author.id,
@@ -249,17 +249,7 @@ module.exports = {
         {
           $inc: {
             pontos: quantia * 18,
-          },
-        }
-      );
-      // Atualizar as vitórias do usuário:
-      await bichoModel.findOneAndUpdate(
-        {
-          userID: message.author.id,
-        },
-        {
-          $inc: {
-            wins: +1,
+            wins: 1,
           },
         }
       );
