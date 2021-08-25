@@ -47,6 +47,17 @@ module.exports = {
             },
           }
         );
+        // Aumentando a streak do usuário:
+        await profileModel.findOneAndUpdate(
+          {
+            userID: message.author.id,
+          },
+          {
+            $inc: {
+              dailyStreak: 1,
+            },
+          }
+        );
       } else {
         console.log("false");
         message.reply("seu bônus diário já foi coletado hoje.");
