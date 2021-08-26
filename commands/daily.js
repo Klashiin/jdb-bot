@@ -7,7 +7,7 @@ module.exports = {
     if (profileData != null) {
       const cooldown = 86400000;
       let lastDaily = profileData.lastDaily;
-      if (lastDaily + cooldown <= Date.now()) {
+      if (lastDaily + cooldown < Date.now()) {
         console.log("true");
         // Definindo o bônus diário:
         let bonus;
