@@ -1,3 +1,5 @@
+const profileModel = require("../models/profileSchema");
+
 module.exports = {
   name: "trabalhar",
   description: "Ganha uma quantia aleatória de pontos.",
