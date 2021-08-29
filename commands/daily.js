@@ -6,8 +6,6 @@ module.exports = {
   cooldown: 1000 * 60 * 60 * 24,
   async execute(client, message, args, Discord, profileData) {
     if (profileData != null) {
-      if (lastDaily + cooldown < Date.now()) {
-        console.log("true");
         // Definindo o bônus diário:
         let bonus;
         if (profileData.dailyStreak >= 10) {
@@ -37,6 +35,5 @@ module.exports = {
           .setColor("#f54272");
         message.channel.send(dailyEmbed);
       }
-    }
   },
 };
