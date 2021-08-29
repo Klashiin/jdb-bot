@@ -3,10 +3,9 @@ const profileModel = require("../models/profileSchema");
 module.exports = {
   name: "daily",
   description: "Coleta o bônus diário (se disponível).",
+  cooldown: 1000 * 60 * 60 * 24,
   async execute(client, message, args, Discord, profileData) {
     if (profileData != null) {
-      const cooldown = 86400000;
-      let lastDaily = profileData.lastDaily;
       if (lastDaily + cooldown < Date.now()) {
         console.log("true");
         // Definindo o bônus diário:
@@ -16,7 +15,7 @@ module.exports = {
         } else {
           bonus = (profileData.dailyStreak / 2) * 250;
         }
-        // Dando os pontos pro usuário:
+        // Dando os pontos pro usuário e aumtandno a streak:
         await profileModel.findOneAndUpdate(
           {
             userID: message.author.id,
@@ -24,6 +23,7 @@ module.exports = {
           {
             $inc: {
               pontos: bonus,
+              dailyStreak: 1,
             },
           }
         );
@@ -36,31 +36,6 @@ module.exports = {
           })
           .setColor("#f54272");
         message.channel.send(dailyEmbed);
-        // Atualizar lastDaily:
-        await profileModel.findOneAndUpdate(
-          {
-            userID: message.author.id,
-          },
-          {
-            $inc: {
-              lastDaily: Date.now(),
-            },
-          }
-        );
-        // Aumentando a streak do usuário:
-        await profileModel.findOneAndUpdate(
-          {
-            userID: message.author.id,
-          },
-          {
-            $inc: {
-              dailyStreak: 1,
-            },
-          }
-        );
-      } else {
-        console.log("false");
-        message.reply("seu bônus diário já foi coletado hoje.");
       }
     }
   },
